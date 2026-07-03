@@ -35,10 +35,10 @@
     "category": "BEVANDE"
   },
   {
-    "id": "prosecco-750",
-    "name": "Prosecco 750 cl",
+    "id": "prosecco-75",
+    "name": "Prosecco 75 cl",
     "price": 30.00,
-    "image": "/img/drinks/prosecco-750.png",
+    "image": "/img/drinks/prosecco-75.png",
     "category": "BEVANDE"
   },
   {
