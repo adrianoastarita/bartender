@@ -3,70 +3,91 @@
     "id": "acqua-naturale-50",
     "name": "Acqua naturale 50 cl",
     "price": 1.50,
-    "image": "/img/drinks/acqua-naturale-50.png",
+    "image": "/img/products/acqua-naturale-50.png",
     "category": "BEVANDE"
   },
   {
     "id": "acqua-frizzante-50",
     "name": "Acqua frizzante 50 cl",
     "price": 1.50,
-    "image": "/img/drinks/acqua-frizzante-50.png",
+    "image": "/img/products/acqua-frizzante-50.png",
     "category": "BEVANDE"
   },
   {
     "id": "acqua-naturale-150",
     "name": "Acqua naturale 150 cl",
     "price": 2.50,
-    "image": "/img/drinks/acqua-naturale-150.png",
+    "image": "/img/products/acqua-naturale-150.png",
     "category": "BEVANDE"
   },
   {
     "id": "acqua-frizzante-150",
     "name": "Acqua frizzante 150 cl",
     "price": 2.50,
-    "image": "/img/drinks/acqua-frizzante-150.png",
+    "image": "/img/products/acqua-frizzante-150.png",
     "category": "BEVANDE"
   },
   {
     "id": "birra-33",
     "name": "Birra 33 cl",
     "price": 5.00,
-    "image": "/img/drinks/birra.png",
+    "image": "/img/products/birra.png",
     "category": "BEVANDE"
   },
   {
     "id": "prosecco-75",
     "name": "Prosecco 75 cl",
     "price": 30.00,
-    "image": "/img/drinks/prosecco-75.png",
+    "image": "/img/products/prosecco-75.png",
     "category": "BEVANDE"
   },
   {
     "id": "coca-cola-33",
     "name": "Coca-Cola 33 cl",
     "price": 4.00,
-    "image": "/img/drinks/coca-cola.png",
+    "image": "/img/products/coca-cola.png",
     "category": "BEVANDE"
   },
   {
     "id": "fanta-33",
     "name": "Fanta 33 cl",
     "price": 4.00,
-    "image": "/img/drinks/fanta.png",
+    "image": "/img/products/fanta.png",
     "category": "BEVANDE"
   },
   {
     "id": "estathe-limone-33",
     "name": "Estathé Limone 33 cl",
     "price": 4.00,
-    "image": "/img/drinks/estathe-limone.png",
+    "image": "/img/products/estathe-limone.png",
     "category": "BEVANDE"
   },
   {
     "id": "estathe-pesca-33",
     "name": "Estathé Pesca 33 cl",
     "price": 4.00,
-    "image": "/img/drinks/estathe-pesca.png",
+    "image": "/img/products/estathe-pesca.png",
     "category": "BEVANDE"
+  },
+  {
+    "id": "patatine-classiche-50",
+    "name": "Patatine classiche 50g",
+    "price": 2.00,
+    "image": "/img/products/patatine-classiche-50.png",
+    "category": "STUZZICHINI"
+  },
+  {
+    "id": "patatine-classiche-450",
+    "name": "Patatine classiche 450",
+    "price": 4.00,
+    "image": "/img/products/patatine-classiche-450.png",
+    "category": "STUZZICHINI"
+  },
+  {
+    "id": "olive-gaeta-150",
+    "name": "Olive di Gaeta 150g",
+    "price": 3.00,
+    "image": "/img/products/olive-gaeta-150.png",
+    "category": "STUZZICHINI"
   }
 ]
