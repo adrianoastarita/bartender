@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Bartender — Ordina al volo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- HEADER FISSO -->
+  <header class="app-header">
+    <button class="icon-btn" id="menuBtn" aria-label="Apri menu">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <h1 class="brand">Bartender</h1>
+
+    <button class="icon-btn cart-btn" id="cartBtn" aria-label="Apri carrello">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 7h12l1.5 12.5a1 1 0 0 1-1 1.1H5.5a1 1 0 0 1-1-1.1L6 7Z"></path>
+        <path d="M9 10V6a3 3 0 0 1 6 0v4"></path>
+      </svg>
+      <span class="cart-badge" id="cartBadge">0</span>
+    </button>
+  </header>
+
+  <!-- MAPPA -->
+  <section class="map-wrap" id="mapWrap">
+    <div class="map-surface">
+      <div class="map-land"></div>
+      <div class="map-water"></div>
+
+      <!-- Pin del bar: posizione statica per ora -->
+      <button class="pin pin-bar" id="barPin" style="--x: 52%; --y: 32%;" aria-label="Posizione del bar">
+        <span class="pin-dot">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 21h8"></path>
+            <path d="M12 21v-5"></path>
+            <path d="M6 3h12l-1 6a5 5 0 0 1-10 0L6 3Z"></path>
+          </svg>
+        </span>
+      </button>
+
+      <!-- Pin utente: TODO collegare a navigator.geolocation.watchPosition -->
+      <button class="pin pin-user" id="userPin" style="--x: 32%; --y: 47%;" aria-label="La tua posizione">
+        <span class="pin-dot pin-dot-user">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 11 20 3l-8 17-2-7-7-2Z"></path>
+          </svg>
+        </span>
+        <span class="pin-pulse"></span>
+      </button>
+
+      <button class="locate-btn" id="locateBtn" aria-label="Centra sulla mia posizione">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="location-bar">
+      <span class="location-dot"></span>
+      <span class="location-text" id="locationText">Posizione aggiornata</span>
+      <span class="location-distance" id="locationDistance">A 120 m da te 〜</span>
+    </div>
+  </section>
+
+  <!-- LISTA BEVANDE -->
+  <main class="menu">
+    <div id="menuCategories"><!-- generato via JS da data/drinks.json --></div>
+  </main>
+
+  <!-- FOOTER FISSO / RIEPILOGO ORDINE -->
+  <footer class="order-bar">
+    <button class="review-btn" id="reviewBtn" aria-label="Rivedi ordine">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="6" y="4" width="12" height="17" rx="2"></rect>
+        <path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"></path>
+        <line x1="9" y1="11" x2="15" y2="11"></line>
+        <line x1="9" y1="15" x2="13" y2="15"></line>
+      </svg>
+    </button>
+
+    <div class="order-summary">
+      <span class="order-count" id="orderCount">0 prodotti</span>
+      <span class="order-total" id="orderTotal">0,00€</span>
+    </div>
+
+    <button class="proceed-btn" id="proceedBtn" disabled>
+      <span>Prosegui</span>
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </button>
+  </footer>
+
+  <!-- RIEPILOGO ORDINE (drawer) -->
+  <div class="order-drawer" id="orderDrawer" aria-hidden="true">
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <div class="drawer-panel">
+      <div class="drawer-handle"></div>
+      <h2>Il tuo ordine</h2>
+      <ul class="drawer-list" id="drawerList"></ul>
+      <div class="drawer-total">
+        <span>Totale</span>
+        <strong id="drawerTotal">0,00€</strong>
+      </div>
+      <button class="proceed-btn drawer-close" id="drawerCloseBtn">Continua</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

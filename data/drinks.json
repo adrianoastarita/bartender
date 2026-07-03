@@ -1,0 +1,44 @@
+[
+  {
+    "id": "acqua-naturale-50",
+    "name": "Acqua naturale 50 cl",
+    "price": 1.50,
+    "image": "/img/drinks/acqua-naturale-50.png",
+    "category": "BEVANDE"
+  },
+  {
+    "id": "birra-33",
+    "name": "Birra 33 cl",
+    "price": 5.00,
+    "image": "/img/drinks/birra.png",
+    "category": "BEVANDE"
+  },
+  {
+    "id": "coca-cola-33",
+    "name": "Coca-Cola 33 cl",
+    "price": 4.00,
+    "image": "/img/drinks/coca-cola.png",
+    "category": "BEVANDE"
+  },
+  {
+    "id": "fanta-33",
+    "name": "Fanta 33 cl",
+    "price": 4.00,
+    "image": "/img/drinks/fanta.png",
+    "category": "BEVANDE"
+  },
+  {
+    "id": "estathe-limone-50",
+    "name": "Estathé Limone 50 cl",
+    "price": 4.00,
+    "image": "/img/drinks/estathe-limone.png",
+    "category": "BEVANDE"
+  },
+  {
+    "id": "estathe-pesca-50",
+    "name": "Estathé Pesca 50 cl",
+    "price": 4.00,
+    "image": "/img/drinks/estathe-pesca.png",
+    "category": "BEVANDE"
+  }
+]
