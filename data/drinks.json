@@ -7,10 +7,38 @@
     "category": "BEVANDE"
   },
   {
+    "id": "acqua-frizzante-50",
+    "name": "Acqua frizzante 50 cl",
+    "price": 1.50,
+    "image": "/img/drinks/acqua-frizzante-50.png",
+    "category": "BEVANDE"
+  },
+  {
+    "id": "acqua-naturale-150",
+    "name": "Acqua naturale 150 cl",
+    "price": 2.50,
+    "image": "/img/drinks/acqua-naturale-150.png",
+    "category": "BEVANDE"
+  },
+  {
+    "id": "acqua-frizzante-150",
+    "name": "Acqua frizzante 150 cl",
+    "price": 2.50,
+    "image": "/img/drinks/acqua-frizzante-150.png",
+    "category": "BEVANDE"
+  },
+  {
     "id": "birra-33",
     "name": "Birra 33 cl",
     "price": 5.00,
     "image": "/img/drinks/birra.png",
+    "category": "BEVANDE"
+  },
+  {
+    "id": "prosecco-750",
+    "name": "Prosecco 750 cl",
+    "price": 30.00,
+    "image": "/img/drinks/prosecco-750.png",
     "category": "BEVANDE"
   },
   {
@@ -28,15 +56,15 @@
     "category": "BEVANDE"
   },
   {
-    "id": "estathe-limone-50",
-    "name": "Estathé Limone 50 cl",
+    "id": "estathe-limone-33",
+    "name": "Estathé Limone 33 cl",
     "price": 4.00,
     "image": "/img/drinks/estathe-limone.png",
     "category": "BEVANDE"
   },
   {
-    "id": "estathe-pesca-50",
-    "name": "Estathé Pesca 50 cl",
+    "id": "estathe-pesca-33",
+    "name": "Estathé Pesca 33 cl",
     "price": 4.00,
     "image": "/img/drinks/estathe-pesca.png",
     "category": "BEVANDE"
