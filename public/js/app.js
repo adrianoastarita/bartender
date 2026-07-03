@@ -2,8 +2,8 @@
   'use strict';
 
   // Dati di fallback nel caso l'app venga aperta senza il server Node
-  // (in produzione i dati arrivano sempre da GET /api/drinks)
-  const FALLBACK_DRINKS = [
+  // (in produzione i dati arrivano sempre da GET /api/products)
+  const FALLBACK_PRODUCTS = [
     { id: 'acqua-naturale-50', name: 'Acqua naturale 50 cl', price: 1.50, icon: 'water', category: 'BEVANDE' },
     { id: 'birra-33', name: 'Birra 33 cl', price: 5.00, icon: 'beer', category: 'BEVANDE' },
     { id: 'coca-cola-50', name: 'Coca-Cola 50 cl', price: 4.00, icon: 'cola', category: 'BEVANDE' },
@@ -13,23 +13,23 @@
   ];
 
   const state = {
-    drinks: [],
+    products: [],
     quantities: {} // id -> quantità
   };
 
   const euro = (value) => value.toFixed(2).replace('.', ',') + '€';
 
   // ---------- Caricamento dati ----------
-  async function loadDrinks() {
+  async function loadproducts() {
     try {
-      const res = await fetch('/api/drinks');
+      const res = await fetch('/api/products');
       if (!res.ok) throw new Error('risposta non ok');
-      state.drinks = await res.json();
+      state.products = await res.json();
     } catch (err) {
       // Server non raggiungibile (es. apertura diretta del file): uso i dati di fallback
-      state.drinks = FALLBACK_DRINKS;
+      state.products = FALLBACK_PRODUCTS;
     }
-    state.drinks.forEach(d => { state.quantities[d.id] = 0; });
+    state.products.forEach(d => { state.quantities[d.id] = 0; });
     renderMenu();
     updateOrderBar();
   }
@@ -39,12 +39,12 @@
     const container = document.getElementById('menuCategories');
     container.innerHTML = '';
 
-    const byCategory = state.drinks.reduce((acc, drink) => {
-      (acc[drink.category] = acc[drink.category] || []).push(drink);
+    const byCategory = state.products.reduce((acc, product) => {
+      (acc[product.category] = acc[product.category] || []).push(product);
       return acc;
     }, {});
 
-    Object.entries(byCategory).forEach(([category, drinks]) => {
+    Object.entries(byCategory).forEach(([category, products]) => {
       const section = document.createElement('section');
 
       const header = document.createElement('div');
@@ -58,7 +58,7 @@
       const list = document.createElement('div');
       list.className = 'category-list';
 
-      drinks.forEach(drink => list.appendChild(renderDrinkCard(drink)));
+      products.forEach(product => list.appendChild(renderproductCard(product)));
 
       header.addEventListener('click', () => {
         header.classList.toggle('collapsed');
@@ -71,28 +71,28 @@
     });
   }
 
-  function renderDrinkCard(drink) {
+  function renderproductCard(product) {
     const card = document.createElement('div');
-    card.className = 'drink-card';
-    card.dataset.id = drink.id;
+    card.className = 'product-card';
+    card.dataset.id = product.id;
     card.innerHTML = `
-      <div class="drink-icon">
-        <img src="${drink.image}" alt="${drink.name}" loading="lazy"
-          onerror="this.onerror=null; this.src='/img/drinks/placeholder.png';">
+      <div class="product-icon">
+        <img src="${product.image}" alt="${product.name}" loading="lazy"
+          onerror="this.onerror=null; this.src='/img/products/placeholder.png';">
       </div>
-      <div class="drink-info">
-        <div class="drink-name">${drink.name}</div>
-        <div class="drink-price">${euro(drink.price)}</div>
+      <div class="product-info">
+        <div class="product-name">${product.name}</div>
+        <div class="product-price">${euro(product.price)}</div>
       </div>
       <div class="qty-control">
-        <button class="qty-btn" data-action="decrease" aria-label="Diminuisci ${drink.name}">−</button>
-        <span class="qty-value" id="qty-${drink.id}">0</span>
-        <button class="qty-btn" data-action="increase" aria-label="Aumenta ${drink.name}">+</button>
+        <button class="qty-btn" data-action="decrease" aria-label="Diminuisci ${product.name}">−</button>
+        <span class="qty-value" id="qty-${product.id}">0</span>
+        <button class="qty-btn" data-action="increase" aria-label="Aumenta ${product.name}">+</button>
       </div>
     `;
 
-    card.querySelector('[data-action="decrease"]').addEventListener('click', () => changeQty(drink.id, -1));
-    card.querySelector('[data-action="increase"]').addEventListener('click', () => changeQty(drink.id, 1));
+    card.querySelector('[data-action="decrease"]').addEventListener('click', () => changeQty(product.id, -1));
+    card.querySelector('[data-action="increase"]').addEventListener('click', () => changeQty(product.id, 1));
 
     return card;
   }
@@ -106,7 +106,7 @@
 
   // ---------- Footer riepilogo ----------
   function getOrderItems() {
-    return state.drinks
+    return state.products
       .filter(d => state.quantities[d.id] > 0)
       .map(d => ({ ...d, qty: state.quantities[d.id] }));
   }
@@ -220,5 +220,5 @@
   }
 
   // ---------- Avvio ----------
-  loadDrinks();
+  loadproducts();
 })();

@@ -8,8 +8,8 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// GET /api/drinks -> restituisce l'elenco dei prodotti dal file JSON
-app.get('/api/drinks', (req, res) => {
+// GET /api/products -> restituisce l'elenco dei prodotti dal file JSON
+app.get('/api/products', (req, res) => {
   const filePath = path.join(__dirname, 'data', 'products.json');
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {

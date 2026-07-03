@@ -253,7 +253,7 @@ button{ font-family: inherit; }
 }
 .category-list.collapsed{ display: none; }
 
-.drink-card{
+.product-card{
   background: var(--white);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card-sm);
@@ -263,7 +263,7 @@ button{ font-family: inherit; }
   gap: 5px;
 }
 
-.drink-icon{
+.product-icon{
   width: 60px; height: 60px;
   border-radius: 12px;
   background: var(--white);
@@ -271,25 +271,25 @@ button{ font-family: inherit; }
   flex-shrink: 0;
   overflow: hidden;
 }
-.drink-icon img{
+.product-icon img{
     width: 100%;
     height: 100%;
     object-fit: contain;
     padding: 6px;
 }
 
-.drink-info{
+.product-info{
   flex: 1;
   min-width: 0;
 }
-.drink-name{
+.product-name{
   font-size: 14.5px;
   color: var(--ink);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.drink-price{
+.product-price{
   font-size: 13.5px;
   color: var(--sea);
   margin-top: 2px;
